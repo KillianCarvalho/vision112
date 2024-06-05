@@ -1,0 +1,131 @@
+:root {
+  --background-gradient: linear-gradient(178deg, #ffff33 10%, #3333ff);
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+}
+
+body{
+  background-color: darkslategray;
+  color: bisque;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+span{
+  font-size:large;
+  font-weight: bold;
+}
+
+button{
+  font-size: medium;
+  font-weight: bold;
+  padding: 10px 50px;
+  cursor: pointer;
+  border-radius: 25px;
+  color: darkslategray;
+  background-color: bisque;
+  border: bisque 1px solid;
+  transition: .2s;
+}
+
+button:hover{
+  color: bisque;
+  background-color: darkslategray;
+}
+
+#container{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#div_menu{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 40%;
+}
+
+#div_res{
+  flex: 60%;
+  height: 800px;
+  border-left: bisque 1px solid;
+}
+
+.filter{
+  width: 600px;
+  margin: 20px 0px;
+  padding: 10px 0px;
+  border-radius: 25px;
+  border: bisque 1px solid;
+}
+
+.onoffswitch {
+  position: relative; 
+  width: 90px;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; 
+  overflow: hidden; 
+  cursor: pointer;
+  height: 30px; 
+  padding: 0; 
+  line-height: 30px;
+  border: 2px solid bisque; 
+  border-radius: 30px;
+  background-color: bisque;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+  content: "";
+  width: 30px; 
+  margin: 0px;
+  background: darkslategray;
+  position: absolute; 
+  top: 0; 
+  bottom: 0;
+  right: 58px;
+  border: 2px solid bisque; 
+  border-radius: 30px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px; 
+}
+
+ul{
+  display:inline-flex
+}
+
+ul li {
+  padding:5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+thead{
+  background-color: bisque;
+  color: darkslategray;
+}
+
+table, th, td {
+  border: 1px solid;
+}

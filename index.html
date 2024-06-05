@@ -2,24 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>eCall112 Project</title>
+    <title>Accident</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script type = "text/javascript" src="script/script.js"></script>
 </head>
 <body>
-<h1>tet</h1>
-<label>date début</label>
-<input name="start-date" type="date">
-<label>date fin</label>
-<input name="end-date" type="date"><br><br>
-<label for="menu_alert">Sélectionner un type d'alerte</label>
-<select name="menu-alert" id="menu_alert">
-    <option value="alert-urgence">appel d'urgence</option>
-    <option value="alert-accident">appel assistance accident</option>
-    <option value="alert-panne">appel assistance panne</option>
-    <option value="alert-erreur">erreur appel</option>
-    <option value="alert-autre">autre</option>
-</select><br>
-<img src="resources/images/France.png" alt="">
-
-
+    <div id="container">
+        <div id="div_menu">
+            <div id="alert_filter" class="filter">
+                <span>Type d'alerte</span><br><br>
+                <label id="label_urgence" for="urgence">Urgence</label>
+                <input type="checkbox" name="urgence" id="urgence"/>
+                <label id="label_accident" for="accident">Accident</label>
+                <input type="checkbox" name="accident" id="accident">
+                <label id="label_panne" for="panne">Panne</label>
+                <input type="checkbox" name="panne" id="panne">
+                <label id="label_erreur" for="erreur">Erreur</label>
+                <input type="checkbox" name="erreur" id="erreur">
+                <label id="label_autre" for="autre">Autre</label>
+                <input type="checkbox" name="autre" id="autre">
+            </div>
+            <div id="vehicule_filter" class="filter">
+                <span>Véhicule impliqué</span><br><br>
+                <label id="label_voiture" for="voiture">Voiture</label>
+                <input type="checkbox" name="voiture" id="voiture"/>
+                <label id="label_autonome" for="autonome">Voiture autonome</label>
+                <input type="checkbox" name="autonome" id="autonome">
+                <label id="label_moto" for="moto">Moto</label>
+                <input type="checkbox" name="moto" id="Moto">
+                <label id="label_camion" for="camion">Camion</label>
+                <input type="checkbox" name="camion" id="Camion">
+                <label id="label_bus" for="bus">Car/Bus</label>
+                <input type="checkbox" name="bus" id="bus">
+            </div>
+            <div id="date_filter" class="filter">
+                <span>Plage de date</span><br><br>
+                <label id="label_dateStart" for="dateStart">Date de début</label>
+                <input type="date" id="dateStart" name="dateStart"/>
+                <br style="margin: 10px 0px;">
+                <label id="label_dateEnd" for="dateStart">Date de fin</label>
+                <input type="date" id="dateEnd" name="dateStart"/>
+            </div>
+            <button onclick="fetchResults()">FILTRER</button>
+        </div>
+        <div id="div_res">
+            <ul>
+                <li class="gray">Map</li>
+                <li>
+                    <div class="onoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                        <label class="onoffswitch-label" for="myonoffswitch"></label>
+                    </div>
+                </li>
+                <li class="gray">Brut</li>
+            </ul>
+            <div class="row">
+                <div id="res_brut" class="hidden">
+                    <h3>Résultats bruts</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>id_accident</th>
+                                <th>zip</th>
+                                <th>latitude</th>
+                                <th>longitude</th>
+                                <th>type_data</th>
+                                <th>type_alert</th>
+                                <th>type_vehicule</th>
+                                <th>event_datetime</th>
+                                <th>accident_datetime</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results_table_body"></tbody>
+                    </table>
+                </div>
+                <div id="res_map">
+                    <h3>Résultats map</h3>
+                    <img id="map" src="ressources/France-routes.png" alt=""/>
+                </div>
+            </div>
+        </div>        
+    </div>
 </body>
 </html>
