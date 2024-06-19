@@ -19,7 +19,17 @@ function fetchResults() {
 
     var alert_values = [];
     checked_alerts.forEach(function(checkbox) {
-    alert_values.push(checkbox.name); // Utiliser name ou value en fonction de ce que vous voulez récupérer
+        console.log(checkbox.name)
+        if (checkbox.name === "urgence")
+            alert_values.push("appelUrgence")
+        else if (checkbox.name === "accident")
+            alert_values.push("appelAssistanceAccident")
+        else if (checkbox.name === "panne")
+            alert_values.push("appelAssistancePanne")
+        else if (checkbox.name === "erreur")
+            alert_values.push("erreurAppel")
+        else if (checkbox.name === "autre")
+            alert_values.push("autre")
 });
 
     var checked_vehicles = document.querySelectorAll('#vehicule_filter input[type="checkbox"]:checked');
@@ -31,6 +41,8 @@ var vehicle_values = [];
 checked_vehicles.forEach(function(checkbox) {
     vehicle_values.push(checkbox.name); // Utiliser name ou value en fonction de ce que vous voulez récupérer
 });
+let test = alert_values.join(',')
+console.log({test})
     var date_debut = document.getElementById('dateStart').value;
     var date_fin = document.getElementById('dateEnd').value;
     var url = '/query?type_alerte=' + encodeURIComponent(alert_values.join(',')) +

@@ -128,4 +128,11 @@ thead{
 
 table, th, td {
   border: 1px solid;
+  padding: 10px;
+}
+
+.row-table {
+  overflow: scroll;
+  width: 1300px;
+  height: 850px;
 }
