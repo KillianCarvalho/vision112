@@ -60,7 +60,6 @@ function displayResults(results) {
     var tableBody = document.getElementById('results_table_body');
     tableBody.innerHTML = ''; // Vide le contenu actuel du tableau
 
-    console.log(results);
     results.forEach(function(row) {
         var tr = document.createElement('tr');
 
@@ -103,4 +102,92 @@ function displayResults(results) {
 
         tableBody.appendChild(tr);
     });
+    createMaps(results)
+}
+
+function createMaps(results) {
+    const filteredUrgence = results.filter(item => item.type_alerte === "appelUrgence");
+
+    var lats_urgence = filteredUrgence.map(item => item.coordonnee_lat)
+    var lons_urgence = filteredUrgence.map(item => item.coordonnee_long)
+
+    const filteredAccident = results.filter(item => item.type_alerte === "appelAssistanceAccident");
+
+    var lats_accident = filteredAccident.map(item => item.coordonnee_lat)
+    var lons_accident = filteredAccident.map(item => item.coordonnee_long)
+
+    const filteredPanne = results.filter(item => item.type_alerte === "appelAssistancePanne");
+
+    var lats_panne = filteredPanne.map(item => item.coordonnee_lat)
+    var lons_panne = filteredPanne.map(item => item.coordonnee_long)
+
+    const filteredOther = results.filter(item => item.type_alerte === "autre");
+
+    var lats_other = filteredOther.map(item => item.coordonnee_lat)
+    var lons_other = filteredOther.map(item => item.coordonnee_long)
+
+    const filteredError = results.filter(item => item.type_alerte === "erreurAppel");
+
+    var lats_error = filteredError.map(item => item.coordonnee_lat)
+    var lons_error = filteredError.map(item => item.coordonnee_long)
+
+
+    var data = [
+        {
+            type: "scattermapbox",
+            mode: "markers",
+            text: "Urgence",
+            lon: lons_urgence,
+            lat: lats_urgence,
+            marker: {color: "purple", size: 6}
+        },
+        {
+            type: "scattermapbox",
+            mode: "markers",
+            text: "Accident",
+            lon: lons_accident,
+            lat: lats_accident,
+            marker: {color: "red", size: 6}
+        },
+        {
+            type: "scattermapbox",
+            mode: "markers",
+            text: "Panne",
+            lon: lons_panne,
+            lat: lats_panne,
+            marker: {color: "orange", size: 6}
+        },
+        {
+            type: "scattermapbox",
+            mode: "markers",
+            text: "Autre",
+            lon: lons_other,
+            lat: lats_other,
+            marker: {color: "yellow", size: 6}
+        },
+        {
+            type: "scattermapbox",
+            mode: "markers",
+            text: "Erreur",
+            lon: lons_error,
+            lat: lats_error,
+            marker: {color: "blue", size: 6}
+        }
+    ];
+
+    var layout = {
+        dragmode: "zoom",
+        mapbox: {
+            style: "open-street-map",
+            center: {
+                lat: 47,
+                lon: 1.888334
+            },
+            zoom: 4.5
+        },
+        showlegend: false,
+        margin: {r: 0, t: 0, b: 0, l: 0}
+    };
+
+    Plotly.newPlot("map-container", data, layout);
 }

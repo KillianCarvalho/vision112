@@ -40,7 +40,7 @@ def generate_gaussian_coordinates(points):
     # Convertir la coordonnée de base en un tuple de floats
     base_coord = tuple(map(float, base_coord.split(',')))
     # Générer une nouvelle coordonnée en ajoutant un bruit gaussien
-    new_coord = tuple(coord + random.gauss(0, 0.01) for coord in base_coord)
+    new_coord = tuple(coord + random.gauss(0, 0.1) for coord in base_coord)
     # Retourner la nouvelle coordonnée et le code postal associé
     return new_coord[0], new_coord[1], base_cp
 
@@ -87,7 +87,7 @@ end_date = datetime(2024, 12, 31)
 time_between_dates = end_date - start_date
 days_between_dates = time_between_dates.days
 
-for i in range(100):
+for i in range(1000):
     # Générer des coordonnées aléatoires selon une distribution gaussienne
     coordonnee_lat, coordonnee_long, code_postal = generate_gaussian_coordinates(points)
     random_number_of_days = random.randrange(days_between_dates)

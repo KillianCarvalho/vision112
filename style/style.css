@@ -136,3 +136,8 @@ table, th, td {
   width: 1300px;
   height: 850px;
 }
+
+#map-container {
+  width: 500px;
+  margin: auto;
+}

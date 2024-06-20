@@ -13,8 +13,6 @@ def execute_query_with_filters(type_alerte, vehicule_implique, date_debut, date_
     query = "SELECT * FROM fiche_accident WHERE accident_date_time >= %s AND accident_date_time <= %s"
     params = [date_debut, date_fin]
 
-
-
     if type_alerte and len(type_alerte) > 0 and type_alerte[0] != '':
         query += " AND type_alerte IN ({})".format(','.join(['%s'] * len(type_alerte)))
         params.extend(type_alerte)
