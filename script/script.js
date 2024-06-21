@@ -42,7 +42,6 @@ checked_vehicles.forEach(function(checkbox) {
     vehicle_values.push(checkbox.name); // Utiliser name ou value en fonction de ce que vous voulez récupérer
 });
 let test = alert_values.join(',')
-console.log({test})
     var date_debut = document.getElementById('dateStart').value;
     var date_fin = document.getElementById('dateEnd').value;
     var url = '/query?type_alerte=' + encodeURIComponent(alert_values.join(',')) +
