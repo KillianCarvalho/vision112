@@ -34,7 +34,7 @@ Pour exécuter l'application, vous aurez besoin des versions suivantes des logic
 
 ## Manuel d'utilisation
 
-référez-vous au manuel d'utilisation [ici]("resources/manuel/Manuel_utilisation.pdf")
+référez-vous au manuel d'utilisation [ici](https://github.com/KillianCarvalho/vision112/blob/master/resources/manuel/Manuel_utilisation.pdf)
 
 ## Manuel d'exploitation
 ### Serveur éteint
