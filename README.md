@@ -6,7 +6,7 @@ Vision112 est une application web développée pour un cours de Python avancé e
 
 Vision112 est une application web utilisant des données anonymisées de l'eCall112, permettant de visualiser les localisations d'accidents routiers sur une période définie. Cette application servira les besoins de la Direction Départementale de l'Équipement (DDE) ainsi que des statisticiens de l'INRETS (Institut National de Recherche sur les Transports et leur Sécurité).
 
-## Installation
+## Manuel d'installation
 
 Pour installer et exécuter l'application, suivez les étapes suivantes :
 
@@ -22,10 +22,6 @@ python gen_file.py
 python db.py
 ```
 
-## Utilisation
-
-L'application est très simple à utiliser. Une fois que vous avez ouvert l'application dans votre navigateur, Vous n'avez qu'à choisir vos filtres sur la partie gauche de votre écran puis cliquer sur le bouton "FILTRER", les données d'afficheront directement sur la partie droite. Vous pouvez afficher les données soit sur une map soit en tableau en cliquant sur le bouton switch.
-
 ## Versions nécessaires
 
 Pour exécuter l'application, vous aurez besoin des versions suivantes des logiciels :
@@ -35,6 +31,21 @@ Pour exécuter l'application, vous aurez besoin des versions suivantes des logic
 - Cassandra 6.1
 - HTML 5
 - CSS 3
+
+## Manuel d'utilisation
+
+référez-vous au manuel d'utilisation [ici]("resources/manuel/Manuel_utilisation.pdf")
+
+## Manuel d'exploitation
+### Serveur éteint
+Vérifier que le serveur est bien lancé si ce n'est pas le cas relaner le à l'aide la commande :
+```shell
+python db.py
+```
+
+### Carte ne s'affiche plus
+Si la carte ne s'affiche plus vérifier que la version est toujours d'actualité en allant sur https://plotly.com/javascript/getting-started/
+et regarder dans le fichier index.html si elle correspond dans le header. 
 
 ## Contact
 
